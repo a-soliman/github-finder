@@ -75,5 +75,16 @@ class UI {
         this.profile.innerHTML = '';
     }
 
-    
+    clearAlert( classes ) {
+        const classNames = classes.split(' ');
+        let classesString = '';
+
+        classNames.forEach((classname) => {
+            classesString += `.${classname}`;
+        });
+
+        let alertOnUI = document.querySelector(`${classesString}`);
+        if ( alertOnUI == null ) { return; }
+        alertOnUI.remove();
+    }
 }
