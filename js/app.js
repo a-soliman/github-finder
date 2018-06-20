@@ -18,6 +18,7 @@ searchUser.addEventListener('keyup', (e) => {
             }
             else {
                 // SHOW PROFILE
+                ui.clearAlert('alert alert-danger');
                 ui.showProfile(user);
 
             }
