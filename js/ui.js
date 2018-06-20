@@ -50,7 +50,30 @@ class UI {
         `;
     }
 
+    showAlert( message, classes) {
+        const classNames = classes.split(' ');
+        let classesString = '';
+
+        classNames.forEach((classname) => {
+            classesString += `.${classname}`;
+        });
+
+        let alertOnUI = document.querySelector(`${classesString}`);
+
+        if ( alertOnUI !== null ) { return; }
+        
+        const alert = document.createElement('div');
+        alert.className = classes;
+        const messageNode = document.createTextNode(message);
+        alert.appendChild(messageNode);
+        const container = document.querySelector('.search-container');
+        const searchBox = container.firstElementChild;
+        container.insertBefore(alert, searchBox);
+    }
+
     clearProfile() {
         this.profile.innerHTML = '';
     }
+
+    
 }
