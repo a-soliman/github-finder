@@ -20,6 +20,11 @@ searchUser.addEventListener('keyup', (e) => {
                 // SHOW PROFILE
                 ui.clearAlert('alert alert-danger');
                 ui.showProfile(user);
+                github.getRepos(userText)
+                    .then( (repos) => {
+                        ui.showRepos(repos);
+                    })
+                    .catch(err => console.log('Error: ', err));
 
             }
         })
